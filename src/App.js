@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { HomePage } from './pages/homePage/HomePage';
+import { MenuPage } from './pages/menuPage/MenuPage';
+import { CartPage } from './pages/cartPage/CartPage';
+import { OrderConfirmationPage } from './pages/orderConfirmationPage/OrderConfirmationPage';
+import { ChefDashboardPage } from './pages/chefDashboardPage/ChefDashboardPage';
+
+// import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/menu/:tableId" element={<MenuPage />} />
+        <Route path="/cart" element={<CartPage />} />
+        <Route path="/order-confirmation" element={<OrderConfirmationPage />} />
+        <Route path="/chef-dashboard" element={<ChefDashboardPage />} />
+      </Routes>
+    </Router>
   );
 }
 
