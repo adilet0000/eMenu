@@ -3,7 +3,6 @@ import Cart from '../components/Cart'; // Компонент для отобра
 import OrderSummary from '../components/OrderSummary'; // Компонент итогов заказа
 import { CartContext } from '../context/CartContext'; // Контекст корзины
 import { useNavigate } from 'react-router-dom';
-import classes from '../style/CartPage.module.css'
 
 const CartPage = () => {
    const { cartItems } = useContext(CartContext); // Получаем данные корзины из контекста

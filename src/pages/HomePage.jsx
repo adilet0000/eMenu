@@ -1,58 +1,46 @@
-import React, { useState, useEffect, useContext } from 'react';
-import MenuList from '../components/MenuList'; // Компонент для отображения меню
-import SearchFilter from '../components/SearchFilter'; // Компонент для поиска и фильтрации
+// HomePage.jsx
+import React, { useContext } from 'react';
 import { TableContext } from '../context/TableContext'; // Контекст столика
-import classes from '../style/HomePage.module.css'
-import '../style/General.css'
+import classes from '../style/HomePage.module.css';
+import logo from '../media/eMenu.png'
+
 
 const HomePage = () => {
    const { tableNumber } = useContext(TableContext); // Получаем номер столика из контекста
-   const [menuItems, setMenuItems] = useState([]); // Все блюда
-   const [filteredItems, setFilteredItems] = useState([]); // Отфильтрованные блюда
 
-   useEffect(() => {
-      // Здесь должна быть логика для загрузки блюд с сервера
-      const fetchData = async () => {
-         const response = await fetch('/api/menu');
-         const data = await response.json();
-         setMenuItems(data); // Устанавливаем все блюда
-         setFilteredItems(data); // Изначально отфильтрованные блюда такие же
-      };
-
-      fetchData();
-   }, []);
-
-   const handleSearch = (query) => {
-      if (query === '') {
-         setFilteredItems(menuItems); // Если запрос пустой, возвращаем все блюда
-      } else {
-         const filtered = menuItems.filter((item) =>
-            item.name.toLowerCase().includes(query.toLowerCase())
-         );
-         setFilteredItems(filtered); // Устанавливаем отфильтрованные блюда
-      }
-   };
-
-   return ( 
-      <div className="home-page">
+   return (
+      <div className={classes.homePage}>
          <header className={classes.header}>
-            <h1 className={classes.title}>Добро пожаловать в наше заведение!</h1>
-            {tableNumber ? (
-               <h2>Вы сидите за столиком №{tableNumber}</h2>
-            ) : (
-               <div className={classes.loadingDiv}>
-                  <img className={classes.loading} src="https://cdn.pixabay.com/animation/2023/08/11/21/18/21-18-05-265_512.gif" alt="" />
-                  <p className={classes.parag}>Определение номера столика...</p>
-               </div>
-            )}
+            {/* Логотип */}
+            <div className={classes.logo}>
+               <img src={logo} className={classes.logoText}/>
+            </div>
+            {/* Добро пожаловать и номер столика */}
+            <div className={classes.welcome}>
+               <h2>Welcome!</h2>
+               {tableNumber ? (
+                  <h3 className={classes.alt}>Вы сидите за столиком №{tableNumber}</h3>
+               ) : (
+                  <div className={classes.loadingDiv}>
+                     <img
+                        className={classes.loading}
+                        src="https://cdn.pixabay.com/animation/2023/08/11/21/18/21-18-05-265_512.gif"
+                        alt=""
+                     />
+                     <p className={classes.parag}>Determining the table number...</p>
+                  </div>
+               )}
+            </div>
          </header>
-         <hr />
 
+         {/* Описание заведения */}
          <main>
-            <section className="menu-section">
-               <h2 className={classes.menuTitle}>Меню</h2>
-               <SearchFilter onSearch={handleSearch} /> 
-               <MenuList items={filteredItems} /> 
+            <section className={classes.descriptionSection}>
+               <h2>About restaurant</h2>
+               <p>
+               The iconic establishment for Tyumen, eMenu, opened its doors in 2019 and immediately felt this attention, 
+               where guests can enjoy excellent cuisine and a cozy atmosphere.
+               </p>
             </section>
          </main>
       </div>

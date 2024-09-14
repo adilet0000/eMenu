@@ -1,40 +1,31 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import classes from '../style/Footer.module.css'
+import { FaInstagram, FaWhatsapp } from 'react-icons/fa'; // Social media icons
+import classes from '../style/Footer.module.css';
 
 const Footer = () => {
    return (
       <footer className={classes.footer}>
         <div className={classes.footerContent}>
+  
           <div className={classes.footerSection}>
-            <h4>Адреса заведений</h4>
-            <p>Киевская 71</p>
-            <p>Токомбаева 21/1</p>
-            <p>Ахунбаева 175</p>
+            <h4>Working Hours</h4>
+            <p>Mon-Sun 11:00-23:00</p>
           </div>
   
           <div className={classes.footerSection}>
-            <h4>Режим работы</h4>
-            <p>Пн-Вс 11:00-23:00</p>
-          </div>
-  
-          <div className={classes.footerSection}>
-            <h4>Контакты</h4>
-            <p>Телефон: <a href="tel:+996703881788">+996 703 88 17 88</a></p>
-            <ul className={classes.socialLinks}>
-              <li>
-                <p style={{display:'flex', gap:"0.3rem"}}>Instagram: 
-                   <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
-               </p>
-              </li>
-              <li>
-              <p style={{display:'flex', gap:"0.3rem"}}>WhatsApp: 
-                <a href="https://api.whatsapp.com" target="_blank" rel="noopener noreferrer">
-                  WhatsApp
+            <h4>Contacts</h4>
+            <p>Phone: <a href="tel:+996703881788">+996 703 88 17 88</a></p>
+            <div className={classes.socialLinks}>
+
+                <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+                  <FaInstagram className={classes.socialIcon} /> Instagram
                 </a>
-               </p>
-              </li>
-            </ul>
+
+                <a href="https://api.whatsapp.com" target="_blank" rel="noopener noreferrer">
+                  <FaWhatsapp className={classes.socialIcon} /> WhatsApp
+                </a>
+
+            </div>
           </div>
         </div>
         <div className={classes.footerBottom}>
