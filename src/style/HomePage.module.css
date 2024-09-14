@@ -1,0 +1,28 @@
+.title{
+    font-size: 1.7rem;
+    text-align: center;
+}
+
+.loading{
+    max-width: 20%;
+}
+
+.loadingDiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.parag{
+    width: auto;
+    font-size: 1.3rem;
+}
+
+.menuTitle{
+    width: auto;
+    font-size: 40px;
+    margin: 1rem;
+    text-align: center;
+}
+

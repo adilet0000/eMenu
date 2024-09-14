@@ -1,61 +1,53 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import classes from '../style/Footer.module.css'
 
 const Footer = () => {
    return (
-      <footer className="footer">
-         <div className="footer-content">
-            <div className="footer-section">
-               <h4>Контактная информация</h4>
-               <p>Адрес: ул. Примерная, 123, Город</p>
-               <p>Телефон: +123 456 789</p>
-               <p>Email: example@example.com</p>
-            </div>
-
-            <div className="footer-section">
-               <h4>Навигация</h4>
-               <ul>
-                  <li>
-                     <Link to="/">Главная</Link>
-                  </li>
-                  <li>
-                     <Link to="/menu">Меню</Link>
-                  </li>
-                  <li>
-                     <Link to="/cart">Корзина</Link>
-                  </li>
-                  <li>
-                     <Link to="/about">О нас</Link>
-                  </li>
-               </ul>
-            </div>
-
-            <div className="footer-section">
-               <h4>Мы в социальных сетях</h4>
-               <ul className="social-links">
-                  <li>
-                     <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-                        Facebook
-                     </a>
-                  </li>
-                  <li>
-                     <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
-                        Instagram
-                     </a>
-                  </li>
-                  <li>
-                     <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-                        Twitter
-                     </a>
-                  </li>
-               </ul>
-            </div>
-         </div>
-         <div className="footer-bottom">
-            <p>&copy; 2024 Название заведения. Все права защищены.</p>
-         </div>
+      <footer className={classes.footer}>
+        <div className={classes.footerContent}>
+          <div className={classes.footerSection}>
+            <h4>Адреса заведений</h4>
+            <p>Киевская 71</p>
+            <p>Токомбаева 21/1</p>
+            <p>Ахунбаева 175</p>
+          </div>
+  
+          <div className={classes.footerSection}>
+            <h4>Режим работы</h4>
+            <p>Пн-Вс 11:00-23:00</p>
+          </div>
+  
+          <div className={classes.footerSection}>
+            <h4>Контакты</h4>
+            <p>Телефон: <a href="tel:+996703881788">+996 703 88 17 88</a></p>
+            <ul className={classes.socialLinks}>
+              <li>
+                <p style={{display:'flex', gap:"0.3rem"}}>Instagram: 
+                   <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
+               </p>
+              </li>
+              <li>
+              <p style={{display:'flex', gap:"0.3rem"}}>WhatsApp: 
+                <a href="https://api.whatsapp.com" target="_blank" rel="noopener noreferrer">
+                  WhatsApp
+                </a>
+               </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div className={classes.footerBottom}>
+          <p>
+            Powered by{' '}
+            <a href="https://kamiqr.kz" target="_blank" rel="noopener noreferrer">
+               Salymbekov University
+            </a>
+          </p>
+          <p>&copy; Salymbekov University College</p>
+        </div>
       </footer>
-   );
+    );
 };
 
 export default Footer;

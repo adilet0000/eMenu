@@ -1,0 +1,13 @@
+.cartTitle{
+    width: auto;
+    text-align: center;
+}
+
+.cartEmpty{
+    width: auto;
+    text-align: center;
+}
+
+.empty{
+    font-size: 5rem;
+}

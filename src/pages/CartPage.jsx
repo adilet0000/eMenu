@@ -3,6 +3,7 @@ import Cart from '../components/Cart'; // Компонент для отобра
 import OrderSummary from '../components/OrderSummary'; // Компонент итогов заказа
 import { CartContext } from '../context/CartContext'; // Контекст корзины
 import { useNavigate } from 'react-router-dom';
+import classes from '../style/CartPage.module.css'
 
 const CartPage = () => {
    const { cartItems } = useContext(CartContext); // Получаем данные корзины из контекста
@@ -18,17 +19,14 @@ const CartPage = () => {
 
    return (
       <div className="cart-page">
-         <header>
-            <h1>Ваша корзина</h1>
-         </header>
 
          <main>
             <section className="cart-items-section">
-               <Cart /> {/* Отображаем содержимое корзины */}
+               <Cart />
             </section>
 
             <aside className="order-summary-section">
-               <OrderSummary /> {/* Отображаем итоговую стоимость заказа */}
+               <OrderSummary /> 
                <button
                   className="proceed-to-payment-button"
                   onClick={handleProceedToPayment}

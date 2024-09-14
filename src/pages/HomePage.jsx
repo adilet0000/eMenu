@@ -2,6 +2,8 @@ import React, { useState, useEffect, useContext } from 'react';
 import MenuList from '../components/MenuList'; // Компонент для отображения меню
 import SearchFilter from '../components/SearchFilter'; // Компонент для поиска и фильтрации
 import { TableContext } from '../context/TableContext'; // Контекст столика
+import classes from '../style/HomePage.module.css'
+import '../style/General.css'
 
 const HomePage = () => {
    const { tableNumber } = useContext(TableContext); // Получаем номер столика из контекста
@@ -31,22 +33,26 @@ const HomePage = () => {
       }
    };
 
-   return (
+   return ( 
       <div className="home-page">
-         <header>
-            <h1>Добро пожаловать в наше заведение!</h1>
+         <header className={classes.header}>
+            <h1 className={classes.title}>Добро пожаловать в наше заведение!</h1>
             {tableNumber ? (
                <h2>Вы сидите за столиком №{tableNumber}</h2>
             ) : (
-               <p>Определение номера столика...</p>
+               <div className={classes.loadingDiv}>
+                  <img className={classes.loading} src="https://cdn.pixabay.com/animation/2023/08/11/21/18/21-18-05-265_512.gif" alt="" />
+                  <p className={classes.parag}>Определение номера столика...</p>
+               </div>
             )}
          </header>
+         <hr />
 
          <main>
             <section className="menu-section">
-               <h2>Меню</h2>
-               <SearchFilter onSearch={handleSearch} /> {/* Компонент поиска */}
-               <MenuList items={filteredItems} /> {/* Отображаем отфильтрованные блюда */}
+               <h2 className={classes.menuTitle}>Меню</h2>
+               <SearchFilter onSearch={handleSearch} /> 
+               <MenuList items={filteredItems} /> 
             </section>
          </main>
       </div>

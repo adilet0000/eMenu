@@ -1,10 +1,12 @@
 import React from 'react';
+import classes from '../style/MenuList.module.css'
+
 
 const MenuList = ({ items }) => {
   return (
     <div className="menu-list">
       {items.length === 0 ? (
-        <p>Ничего не найдено.</p>
+        <p className={classes.nothing}>Ничего не найдено.</p>
       ) : (
         items.map((item) => (
           <div key={item.id} className="menu-item">

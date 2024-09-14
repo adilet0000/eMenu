@@ -1,5 +1,7 @@
 import React, { useContext } from 'react';
 import { CartContext } from '../context/CartContext'; // Контекст корзины
+import classes from '../style/Cart.module.css'
+import { PiEmpty } from "react-icons/pi";
 
 const Cart = () => {
    const { cartItems, addToCart, removeFromCart, totalPrice } = useContext(CartContext);
@@ -14,9 +16,12 @@ const Cart = () => {
 
    return (
       <div className="cart">
-         <h2>Ваш заказ</h2>
+         <h1 className={classes.cartTitle}>Ваш заказ</h1>
          {cartItems.length === 0 ? (
-            <p>Ваша корзина пуста.</p>
+            <div>
+               <h2 className={classes.cartEmpty}>Ваша корзина пуста :(</h2>
+               <PiEmpty className={classes.empty}/>
+            </div>
          ) : (
             <div>
                {cartItems.map((item) => (

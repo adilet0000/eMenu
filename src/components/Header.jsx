@@ -1,6 +1,14 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { CartContext } from '../context/CartContext'; // Контекст корзины
+import classes from '../style/Header.module.css'
+import '../style/General.css'
+import { IoCartSharp } from "react-icons/io5";
+import { BiSolidDish } from "react-icons/bi";
+import { FaHome } from "react-icons/fa";
+import { FaRegArrowAltCircleRight } from "react-icons/fa";
+import logo from '../media/eMenu.png'
+
 
 const Header = () => {
    const { cartItems } = useContext(CartContext); // Данные корзины для отображения количества товаров
@@ -11,27 +19,29 @@ const Header = () => {
 
    return (
       <header className="header">
-         <div className="logo">
+         <div className={classes.logo}>
             <Link to="/">
-               <img src="/path-to-logo/logo.png" alt="Логотип" className="logo-image" />
+               <img src={logo} alt="Логотип"/>
             </Link>
-            <h1>Название заведения</h1>
+            <h1 className={classes.title}>eMenu</h1>
+            <h4 className={classes.disc}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil suscipit eius corporis deserunt aliquam eligendi, eveniet, inventore nisi beatae nam sit rem. Corporis ipsum tenetur consectetur officia repellat sequi cumque?</h4>
          </div>
          <nav className="navigation">
-            <ul>
-               <li>
-                  <Link to="/">Главная</Link>
+            <ul className={classes.t}>
+               <li className={classes.main}>
+                  <Link to="/" className={classes.main}><FaHome className={classes.cartIcon}/> Главная</Link> 
                </li>
-               <li>
-                  <Link to="/menu">Меню</Link>
+               <li className={classes.main2}>
+                   <Link to="/menu" className={classes.main2}><BiSolidDish className={classes.cartIcon}/> Меню</Link>
                </li>
-               <li>
-                  <Link to="/cart" className="cart-link">
-                     Корзина <span className="cart-count">({getTotalItems()})</span>
-                  </Link>
+               <li className={classes.main3}>
+                  <Link to="/cart" className={classes.main3}>
+                        <IoCartSharp className={classes.cartIcon} /> Корзина 
+                  </Link> <span className={classes.counter}>({getTotalItems()}) </span>
                </li>
             </ul>
          </nav>
+         <hr />
       </header>
    );
 };
