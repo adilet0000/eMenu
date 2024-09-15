@@ -1,15 +1,21 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import { TableContext } from '../context/TableContext'; // Импортируем контекст
 import classes from "../style/TableSelector.module.css";
 
 function TableSelector() {
+  const { setTableNumber } = useContext(TableContext); // Достаем функцию setTableNumber из контекста
   const [searchParams] = useSearchParams();
   const [number, setNumber] = useState(null);
 
   useEffect(() => {
     const num = searchParams.get('number');
     setNumber(num);
-  }, [searchParams]);
+
+    if (num) {
+      setTableNumber(num); // Обновляем номер столика в контексте
+    }
+  }, [searchParams, setTableNumber]);
 
   return (
     <div className={classes.container}>

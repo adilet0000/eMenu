@@ -36,7 +36,7 @@ const HomePage = () => {
             <div className={classes.welcome}>
                <h2>Welcome!</h2>
                {tableNumber ? (
-                  <h3 className={classes.alt}>Вы сидите за столиком №{tableNumber}</h3>
+                  <h3 className={classes.alt}>You're table is {tableNumber}</h3>
                ) : (
                   <TableSelector/>
                )}
