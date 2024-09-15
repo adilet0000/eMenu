@@ -9,7 +9,6 @@ import CartPage from './pages/CartPage'; // Страница корзины
 import ChefPage from './pages/ChefPage'; // Страница для повара
 import PaymentOptions from './pages/PaymentOptions'; // Страница оплаты
 import Header from './components/Header'; // Шапка сайта
-import Footer from './components/Footer'; // Футер сайта
 import MenuList from './components/MenuList'; // Компонент меню
 import SuccessPage from './pages/SuccessPage';
 
