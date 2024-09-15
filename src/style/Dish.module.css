@@ -65,7 +65,8 @@
     position: fixed;
     bottom: 6rem;
     width: 80%;
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(207, 207, 207, 0.9);
+    color: #23262f;
 }
 
 .num {
@@ -80,8 +81,19 @@
     color: #e74c3c;
 }
 
-.itemDiv{
+.itemDiv {
     display: flex;
     justify-content: center;
     width: auto;
+    overflow: hidden;
+}
+
+.imgContainer {
+    height: 10rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.itemDiv img {
+    width: 100%;
 }

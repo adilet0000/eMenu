@@ -11,19 +11,20 @@ const Cart = () => {
     };
 
     const handleRemove = (item) => {
+        removeFromCart(item); // Уменьшаем количество блюда
         if (item.quantity === 1) {
-            removeFromCart(item, true); // Передаем флаг для удаления блюда
-        } else {
-            removeFromCart(item); // Уменьшаем количество блюда
+            // Удаление полностью
+            removeFromCart(item, true);
         }
     };
+
 
     return (
         <div className={classes.cart}>
             <h1 className={classes.cartTitle}>Your order</h1>
             {cartItems.length === 0 ? (
                 <div>
-                    <h2 className={classes.cartEmpty}>Your cart is empty :(</h2>
+                    <h2 className={classes.cartEmpty}>Your cart is empty.</h2>
                     <PiEmpty className={classes.empty} />
                 </div>
             ) : (
@@ -34,9 +35,9 @@ const Cart = () => {
                             <div className={classes.cartItemDetails}>
                                 <h3>{item.name}</h3>
                                 <div className={classes.cartItemControls}>
-                                    <button onClick={() => handleRemove(item)}>-</button>
+                                    <button className={classes.addRemBtn} onClick={() => handleRemove(item)}>-</button>
                                     <span className={classes.number}>{item.quantity}</span>
-                                    <button onClick={() => handleAdd(item)}>+</button>
+                                    <button className={classes.addRemBtn} onClick={() => handleAdd(item)}>+</button>
                                 </div>
                                 <span className={classes.cartItemPrice}>{item.price * item.quantity} som</span>
                             </div>

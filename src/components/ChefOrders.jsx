@@ -2,76 +2,50 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 const ChefOrders = () => {
-   const [orders, setOrders] = useState([]);
-   const [loading, setLoading] = useState(true);
-   const [error, setError] = useState(null);
+   const [chefOrders, setChefOrders] = useState([]); // Локальное состояние для заказов
+   const [loading, setLoading] = useState(true); // Состояние для отслеживания загрузки
 
-   // Получение всех заказов с сервера
    useEffect(() => {
+      // Загружаем заказы с MockAPI
       const fetchOrders = async () => {
          try {
-            const response = await axios.get('/api/orders');
-            setOrders(response.data);
-         } catch (err) {
-            setError('Ошибка при загрузке заказов');
-            console.error(err);
+            const response = await axios.get('https://66e6ed9f17055714e58af35c.mockapi.io/orders'); // Замените на ваш URL MockAPI
+            setChefOrders(response.data); // Устанавливаем заказы в локальное состояние
+         } catch (error) {
+            console.error('Failed to fetch orders', error);
          } finally {
-            setLoading(false);
+            setLoading(false); // Отключаем состояние загрузки
          }
       };
 
-      fetchOrders();
-   }, []);
-
-   // Отмечаем заказ как выполненный
-   const markAsCompleted = async (orderId) => {
-      try {
-         await axios.patch(`/api/orders/${orderId}`, { status: 'completed' });
-         setOrders((prevOrders) =>
-            prevOrders.map((order) =>
-               order.id === orderId ? { ...order, status: 'completed' } : order
-            )
-         );
-         alert('Заказ отмечен как выполненный!');
-      } catch (err) {
-         console.error('Ошибка при обновлении статуса заказа:', err);
-         alert('Не удалось отметить заказ как выполненный');
-      }
-   };
+      fetchOrders(); // Вызываем функцию загрузки при рендере компонента
+   }, []); // Пустой массив зависимостей, чтобы запрос выполнялся только при первой загрузке компонента
 
    if (loading) {
-      return <p>Загрузка заказов...</p>;
-   }
-
-   if (error) {
-      return <p>{error}</p>;
+      return <p>Loading orders...</p>; // Показываем сообщение о загрузке, пока данные не получены
    }
 
    return (
-      <div className="chef-orders">
-         <h2>Заказы</h2>
-         {orders.length === 0 ? (
-            <p>Заказов пока нет.</p>
-         ) : (
-            orders.map((order) => (
-               <div key={order.id} className="order-item">
-                  <h3>Столик №{order.tableNumber}</h3>
-                  <ul>
-                     {order.cartItems.map((item) => (
-                        <li key={item.id}>
-                           {item.name} – {item.quantity} шт.
-                        </li>
-                     ))}
-                  </ul>
-                  <p>Итоговая стоимость: {order.totalPrice} с</p>
-                  <p>Статус: {order.status === 'completed' ? 'Выполнен' : 'В ожидании'}</p>
-                  {order.status !== 'completed' && (
-                     <button onClick={() => markAsCompleted(order.id)}>
-                        Отметить как выполненный
-                     </button>
-                  )}
+      <div>
+         <h2>Orders</h2>
+         {chefOrders.length > 0 ? (
+            chefOrders.map((order, index) => (
+               <div key={index}>
+                  <h3>Table {order.tableNumber}</h3>
+                  {order.cartItems.map((item) => (
+                     <div key={item.id}>
+                        <img src={item.photo} alt={item.name} />
+                        <p>Name: {item.name}</p>
+                        <p>Price: {item.price}</p>
+                        <p>Quantity: {item.quantity}</p>
+                     </div>
+                  ))}
+                  <p>Total Price: {order.totalPrice}</p>
+                  <p>Payment Method: {order.paymentMethod}</p>
                </div>
             ))
+         ) : (
+            <p>No orders yet.</p>
          )}
       </div>
    );

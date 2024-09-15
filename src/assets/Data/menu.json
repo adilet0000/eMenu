@@ -2,35 +2,35 @@
     {
       "id": 1,
       "name": "Caesar Salad",
-      "photo": "https://www.southernliving.com/thmb/TiGXc2JsEJpsioS_TA-LDzRFPEc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/27531_ST_TENDERLOINS_13-7442687e434e4c4c95609ff0262773a2.jpg",
+      "photo": "https://rachaelsgoodeats.com/wp-content/uploads/2024/01/240108_hot-honey-chicken-caesar-salad-21.jpg",
       "description": "Fresh romaine lettuce with crispy croutons, Parmesan cheese, and signature Caesar dressing.",
       "price": 930
     },
     {
       "id": 2,
       "name": "Margherita Pizza",
-      "photo": "https://www.southernliving.com/thmb/TiGXc2JsEJpsioS_TA-LDzRFPEc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/27531_ST_TENDERLOINS_13-7442687e434e4c4c95609ff0262773a2.jpg",
+      "photo": "https://www.stefanofaita.com/wp-content/uploads/2022/04/pizzamargherita1.jpg",
       "description": "Classic pizza with tomato sauce, fresh tomatoes, basil, and mozzarella cheese.",
       "price": 1099
     },
     {
       "id": 3,
       "name": "Grilled Salmon",
-      "photo": "https://www.southernliving.com/thmb/TiGXc2JsEJpsioS_TA-LDzRFPEc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/27531_ST_TENDERLOINS_13-7442687e434e4c4c95609ff0262773a2.jpg",
+      "photo": "https://www.pccmarkets.com/wp-content/uploads/2017/08/pcc-rosemary-grilled-salmon-flo.jpg",
       "description": "Tender grilled salmon served with steamed vegetables and lemon sauce.",
       "price": 1250
     },
     {
       "id": 4,
       "name": "Beef Burger",
-      "photo": "https://www.southernliving.com/thmb/TiGXc2JsEJpsioS_TA-LDzRFPEc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/27531_ST_TENDERLOINS_13-7442687e434e4c4c95609ff0262773a2.jpg",
+      "photo": "https://staticcookist.akamaized.net/wp-content/uploads/sites/22/2021/09/beef-burger.jpg",
       "description": "Juicy beef patty with lettuce, tomato, cheese, and special sauce in a toasted bun.",
       "price": 1499
     },
     {
       "id": 5,
       "name": "Chocolate Lava Cake",
-      "photo": "https://www.southernliving.com/thmb/TiGXc2JsEJpsioS_TA-LDzRFPEc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/27531_ST_TENDERLOINS_13-7442687e434e4c4c95609ff0262773a2.jpg",
+      "photo": "https://static01.nyt.com/images/2023/02/14/dining/two_person_lava_cake_1260/two_person_lava_cake_1260-superJumbo.jpg",
       "description": "Warm chocolate dessert with a molten center, served with vanilla ice cream.",
       "price": 670
     }

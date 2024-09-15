@@ -1,49 +1,57 @@
 /* Header.module.css */
 
 .header {
-    background-color: #1e1e1e; /* Цвет фона */
-    padding: 10px 0;
-    position: fixed;
-    bottom: 0px; 
-    width: 100%;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
-    z-index: 10;
+   background-color: #1e1e1e;
+   /* Цвет фона */
+   padding: 10px 0;
+   position: fixed;
+   bottom: 0px;
+   width: 100%;
+   box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+   z-index: 10;
 }
 
- 
- .bottomNav {
-    display: flex;
-    justify-content: space-around;
- }
- 
- .navList {
-    list-style: none;
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    padding: 0;
-    margin: 0;
- }
- 
- .navItem {
-    flex: 1;
-    text-align: center;
- }
- 
- .navLink {
-    color: #fff;
-    text-decoration: none;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
- }
- 
- .icon {
-    font-size: 24px;
- }
- 
- .counter {
-    font-size: 12px;
-    color: #ffcc66; /* Цвет счетчика */
- }
- 
+
+.bottomNav {
+   display: flex;
+   justify-content: space-around;
+}
+
+.navList {
+   list-style: none;
+   display: flex;
+   justify-content: space-around;
+   width: 100%;
+   padding: 0;
+   margin: 0;
+}
+
+.navItem {
+   flex: 1;
+   text-align: center;
+   background-color: #1e1e1e;
+   /* Цвет фона */
+}
+
+.navLink {
+   /* Цвет фона */
+   color: #fff;
+   text-decoration: none;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   background-color: #1e1e1e;
+   transition: .4s ease;
+}
+
+.icon {
+   font-size: 24px;
+   background-color: #1e1e1e;
+}
+
+.counter {
+   font-size: 12px;
+   color: #ffcc66;
+   background-color: #1e1e1e;
+   /* Цвет счетчика */
+}

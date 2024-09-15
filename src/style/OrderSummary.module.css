@@ -13,8 +13,12 @@
 }
 
 .button {
-    color: black;
     width: 80%;
+    background-color: rgba(207, 207, 207, 0.9);
+    color: #23262f;
+    position: fixed;
+    bottom: 6rem;
+    width: 50%;
 }
 
 .buttonDiv {

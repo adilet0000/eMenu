@@ -42,9 +42,10 @@
 
 .cartItemImage {
   max-width: auto;
-  height: auto;
+  max-height: 10rem;
   object-fit:cover;
   border-radius: 8px;
+  margin-top: 3rem;
 }
 
 .cartItemDetails {
@@ -78,7 +79,13 @@
 .cartTotal {
   border-top: 1px solid #ddd;
   padding: 10px 0;
-  margin-top: 20px;
+  margin-top: 1rem;
+  margin-bottom: 7rem;
   text-align: right;
+}
+
+.addRemBtn {
+  background-color: rgba(207, 207, 207, 0.9);
+  color: #23262f;
 }
 

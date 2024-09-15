@@ -1,9 +1,9 @@
 import React, { useContext, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { CartContext } from '../context/CartContext'; // Контекст корзины
 import { TableContext } from '../context/TableContext'; // Контекст столика
-import axios from 'axios'; // Для отправки данных на сервер
+import axios from 'axios'; // Для отправки данных на MockAPI
 import classes from '../style/PaymentOptions.module.css'; // Импортируем CSS модуль
+import { useNavigate } from 'react-router-dom';
 
 const PaymentOptions = () => {
    const { cartItems, totalPrice, clearCart } = useContext(CartContext); // Данные корзины
@@ -30,10 +30,10 @@ const PaymentOptions = () => {
       };
 
       try {
-         // Отправляем данные заказа на сервер
-         const response = await axios.post('/api/order', orderData);
+         // Отправляем данные заказа на MockAPI
+         const response = await axios.post('https://66e6ed9f17055714e58af35c.mockapi.io/orders', orderData);
 
-         if (response.status === 200) {
+         if (response.status === 201) {
             alert('Your order has been sent successfully!');
             clearCart(); // Очищаем корзину после успешного заказа
             navigate('/success'); // Перенаправляем на страницу успеха
