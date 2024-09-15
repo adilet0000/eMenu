@@ -5,6 +5,7 @@ import { TableContext } from '../context/TableContext'; // Контекст ст
 import classes from '../style/HomePage.module.css';
 import logo from '../media/eMenu.png';
 import Footer from '../components/Footer';
+import TableSelector from '../components/TableSelector';
 
 const HomePage = () => {
    const { tableNumber } = useContext(TableContext); // Получаем номер столика из контекста
@@ -37,14 +38,7 @@ const HomePage = () => {
                {tableNumber ? (
                   <h3 className={classes.alt}>Вы сидите за столиком №{tableNumber}</h3>
                ) : (
-                  <div className={classes.loadingDiv}>
-                     <img
-                        className={classes.loading}
-                        src="https://cdn.pixabay.com/animation/2023/08/11/21/18/21-18-05-265_512.gif"
-                        alt="Loading"
-                     />
-                     <p className={classes.parag}>Determining the table number...</p>
-                  </div>
+                  <TableSelector/>
                )}
             </div>
          </header>
