@@ -9,6 +9,7 @@ import ChefPage from './pages/ChefPage'; // Страница для повара
 import PaymentOptions from './pages/PaymentOptions'; // Страница оплаты
 import Header from './components/Header'; // Шапка сайта
 import Footer from './components/Footer'; // Футер сайта
+import MenuList from './components/MenuList';
 
 const App = () => {
   return (
@@ -24,9 +25,9 @@ const App = () => {
               <Route path="/cart" element={<CartPage />} />
               <Route path="/payment" element={<PaymentOptions />} />
               <Route path="/chef" element={<ChefPage />} />
+              <Route path="/menu" element={<MenuList />} />
             </Routes>
-
-            <Footer /> {/* Футер сайта */}
+            
           </div>
         </Router>
       </CartProvider>

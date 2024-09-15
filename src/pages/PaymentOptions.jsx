@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { CartContext } from '../context/CartContext'; // Контекст корзины
 import { TableContext } from '../context/TableContext'; // Контекст столика
 import axios from 'axios'; // Для отправки данных на сервер
+import classes from '../style/PaymentOptions.module.css'; // Импортируем CSS модуль
 
 const PaymentOptions = () => {
    const { cartItems, totalPrice, clearCart } = useContext(CartContext); // Данные корзины
@@ -16,7 +17,7 @@ const PaymentOptions = () => {
 
    const handlePlaceOrder = async () => {
       if (!paymentMethod) {
-         alert('Пожалуйста, выберите способ оплаты.');
+         alert('Please select a payment method.');
          return;
       }
 
@@ -33,22 +34,22 @@ const PaymentOptions = () => {
          const response = await axios.post('/api/order', orderData);
 
          if (response.status === 200) {
-            alert('Ваш заказ успешно отправлен!');
+            alert('Your order has been sent successfully!');
             clearCart(); // Очищаем корзину после успешного заказа
             navigate('/success'); // Перенаправляем на страницу успеха
          } else {
-            alert('Произошла ошибка при отправке заказа. Попробуйте снова.');
+            alert('An error occurred while submitting your order. Try again.');
          }
       } catch (error) {
-         console.error('Ошибка при отправке заказа:', error);
-         alert('Ошибка при отправке заказа.');
+         console.error('Error sending order:', error);
+         alert('Error sending order.');
       }
    };
 
    return (
-      <div className="payment-options">
-         <h2>Выберите способ оплаты</h2>
-         <div className="payment-methods">
+      <div className={classes.paymentOptions}>
+         <h2>Select payment method</h2>
+         <div className={classes.paymentMethods}>
             <label>
                <input
                   type="radio"
@@ -57,7 +58,7 @@ const PaymentOptions = () => {
                   checked={paymentMethod === 'cash'}
                   onChange={() => handlePaymentMethodChange('cash')}
                />
-               Наличные
+               Cash
             </label>
             <label>
                <input
@@ -67,11 +68,15 @@ const PaymentOptions = () => {
                   checked={paymentMethod === 'card'}
                   onChange={() => handlePaymentMethodChange('card')}
                />
-               Карта
+               Card
             </label>
          </div>
-         <button className="place-order-button" onClick={handlePlaceOrder}>
-            Оформить заказ
+         <button 
+            className={classes.placeOrderButton} 
+            onClick={handlePlaceOrder}
+            disabled={!paymentMethod}
+         >
+            Place an order
          </button>
       </div>
    );

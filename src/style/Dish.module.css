@@ -1,0 +1,87 @@
+/* Dish.module.css */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    width: auto;
+    margin-bottom: 12rem;
+}
+
+.card {
+    background-color: #23262f;
+    border: 1px solid #23262f;
+    border-radius: 8px;
+    padding: 15px;
+    width: 300px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.card h2 {
+    font-size: 1.5rem;
+    color: #cfcfcf;
+    margin-bottom: 10px;
+}
+
+.card p {
+    background: #23262f;
+    font-size: 1rem;
+    color: #cfcfcf;
+    margin: 5px 0;
+}
+
+.btns {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    background: #23262f;
+}
+
+.btn {
+    overflow: hidden;
+    width: 5rem;
+    height: 2rem;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.addToCartButton {
+    position: fixed;
+    bottom: 6rem;
+    width: 80%;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.num {
+    color: #cfcfcf;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.price {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #e74c3c;
+}
+
+.itemDiv{
+    display: flex;
+    justify-content: center;
+    width: auto;
+}

@@ -3,6 +3,7 @@ import React, { useContext } from 'react';
 import { TableContext } from '../context/TableContext'; // Контекст столика
 import classes from '../style/HomePage.module.css';
 import logo from '../media/eMenu.png'
+import Footer from '../components/Footer';
 
 
 const HomePage = () => {
@@ -14,7 +15,7 @@ const HomePage = () => {
             {/* Логотип */}
             <div className={classes.logo}>
                <img src={logo} className={classes.logoText}/>
-            </div>
+            </div>   
             {/* Добро пожаловать и номер столика */}
             <div className={classes.welcome}>
                <h2>Welcome!</h2>
@@ -43,6 +44,7 @@ const HomePage = () => {
                </p>
             </section>
          </main>
+         <Footer />
       </div>
    );
 };

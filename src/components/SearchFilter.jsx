@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import classes from '../style/SearchFilter.module.css'
-import { FaMagnifyingGlass } from "react-icons/fa6";
+
 
 const SearchFilter = ({ onSearch }) => {
    const [searchQuery, setSearchQuery] = useState('');
@@ -14,7 +14,7 @@ const SearchFilter = ({ onSearch }) => {
       <div className={classes.search}>
          <input
             type="text"
-            placeholder =' Поиск по меню...'
+            placeholder ='Menu search'
             value={searchQuery}
             onChange={handleSearchChange}
             className={classes.searchMenu}

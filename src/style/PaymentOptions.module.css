@@ -1,0 +1,63 @@
+.paymentOptions {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 1rem;
+    width: auto;
+    margin: auto;
+}
+
+.paymentOptions h2 {
+    max-width: auto;
+    font-size: 1.8rem;
+    margin-bottom: 3rem;
+    text-align: center;
+    color: #ffff;
+}
+
+.paymentMethods {
+    max-width: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+}
+
+.paymentMethods label {
+    max-width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    color: #fff;
+}
+
+.paymentMethods input[type="radio"] {
+    max-width: 1.4rem;
+}
+
+.placeOrderButton {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.2rem;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    max-width: auto;
+    cursor: pointer;
+    margin-top: 2rem;
+    border-radius: 5px;
+}
+
+.placeOrderButton:hover {
+    max-width: auto;
+    background-color: #0056b3;
+}
+
+.placeOrderButton:disabled {
+    max-width: auto;
+    background-color: #ddd;
+    cursor: not-allowed;
+}

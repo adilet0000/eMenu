@@ -4,10 +4,12 @@
     background-color: #1e1e1e; /* Цвет фона */
     padding: 10px 0;
     position: fixed;
-    bottom: 0;
+    bottom: 0px; 
     width: 100%;
     box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
- }
+    z-index: 10;
+}
+
  
  .bottomNav {
     display: flex;

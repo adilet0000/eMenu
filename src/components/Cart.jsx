@@ -1,53 +1,55 @@
 import React, { useContext } from 'react';
 import { CartContext } from '../context/CartContext'; // Контекст корзины
-import classes from '../style/Cart.module.css'
+import classes from '../style/Cart.module.css';
 import { PiEmpty } from "react-icons/pi";
 
 const Cart = () => {
-   const { cartItems, addToCart, removeFromCart, totalPrice } = useContext(CartContext);
+    const { cartItems, addToCart, removeFromCart, totalPrice } = useContext(CartContext);
 
-   const handleAdd = (item) => {
-      addToCart(item); // Увеличиваем количество блюда
-   };
+    const handleAdd = (item) => {
+        addToCart(item); // Увеличиваем количество блюда
+    };
 
-   const handleRemove = (item) => {
-      removeFromCart(item); // Уменьшаем количество блюда
-   };
+    const handleRemove = (item) => {
+        if (item.quantity === 1) {
+            removeFromCart(item, true); // Передаем флаг для удаления блюда
+        } else {
+            removeFromCart(item); // Уменьшаем количество блюда
+        }
+    };
 
-   return (
-      <div className="cart">
-         <h1 className={classes.cartTitle}>Ваш заказ</h1>
-         {cartItems.length === 0 ? (
-            <div>
-               <h2 className={classes.cartEmpty}>Ваша корзина пуста :(</h2>
-               <PiEmpty className={classes.empty}/>
-            </div>
-         ) : (
-            <div>
-               {cartItems.map((item) => (
-                  <div key={item.id} className="cart-item">
-                     <img src={item.image} alt={item.name} className="cart-item-image" />
-                     <div className="cart-item-details">
-                        <h3>{item.name}</h3>
-                        <p>{item.weight} гр.</p>
-                        <div className="cart-item-controls">
-                           <button onClick={() => handleRemove(item)}>-</button>
-                           <span>{item.quantity}</span>
-                           <button onClick={() => handleAdd(item)}>+</button>
+    return (
+        <div className={classes.cart}>
+            <h1 className={classes.cartTitle}>Your order</h1>
+            {cartItems.length === 0 ? (
+                <div>
+                    <h2 className={classes.cartEmpty}>Your cart is empty :(</h2>
+                    <PiEmpty className={classes.empty} />
+                </div>
+            ) : (
+                <div>
+                    {cartItems.map((item) => (
+                        <div key={item.id} className={classes.cartItem}>
+                            <img src={item.photo} alt={item.name} className={classes.cartItemImage} />
+                            <div className={classes.cartItemDetails}>
+                                <h3>{item.name}</h3>
+                                <div className={classes.cartItemControls}>
+                                    <button onClick={() => handleRemove(item)}>-</button>
+                                    <span className={classes.number}>{item.quantity}</span>
+                                    <button onClick={() => handleAdd(item)}>+</button>
+                                </div>
+                                <span className={classes.cartItemPrice}>{item.price * item.quantity} som</span>
+                            </div>
                         </div>
-                        <span className="cart-item-price">{item.price * item.quantity} с</span>
-                     </div>
-                  </div>
-               ))}
-               <div className="cart-total">
-                  <h3>Итого</h3>
-                  <span>{totalPrice} с</span>
-               </div>
-               <button className="order-button">Заказать</button>
-            </div>
-         )}
-      </div>
-   );
+                    ))}
+                    <div className={classes.cartTotal}>
+                        <h3>Total</h3>
+                        <span>{totalPrice} som</span>
+                    </div>
+                </div>
+            )}
+        </div>
+    );
 };
 
 export default Cart;
