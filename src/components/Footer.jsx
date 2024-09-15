@@ -32,10 +32,10 @@ const Footer = () => {
           <p>
             Powered by{' '}
             <a href="https://kamiqr.kz" target="_blank" rel="noopener noreferrer">
-               Salymbekov University
+               eMenu Team
             </a>
           </p>
-          <p>&copy; Salymbekov University College</p>
+          <p>&copy; eMenu</p>
         </div>
       </footer>
     );
